@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
+    
+    <xacro:include filename="robot_core.xacro" />
+    <xacro:include filename="robot_control.xacro" />
+    <xacro:include filename="gazebo_control.xacro" />
+    
+    <xacro:include filename="ARM_transmission.xacro" />
+    <xacro:include filename="bucket_transmission.xacro" />
+    <xacro:include filename="hand_transmission.xacro" />
+    <xacro:include filename="pris_transmission.xacro" />
+    <xacro:include filename="lidar.xacro" />
+    <ros2_control name="gripper_robot_gazebo_system" type="system">
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+        <xacro:R_ARM_transmission/>
+        <xacro:bucket_transmission/>
+        <xacro:hand_transmission/>
+        <xacro:pris_transmission/>
+    </ros2_control>
+    <xacro:robot_controller/>
+</robot>
